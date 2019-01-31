@@ -8,6 +8,7 @@ namespace EF.Data
 {
     public class Person // going to be an entity
     {
+        [Key]
         public int PersonId { get; set; }
 
         [Display(Name = "First Name")]

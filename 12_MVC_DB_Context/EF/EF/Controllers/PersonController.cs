@@ -67,6 +67,24 @@ namespace EF.Controllers
             return View(model);
         }
 
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var personToDelete = context.Persons.Find(id);
+
+            return View(personToDelete);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Person model)
+        {
+            //var personToDelete = context.Persons.Find(model.PersonId);
+            //context.Persons.Remove(personToDelete);
+            context.Remove(model);
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
 
 
     }
